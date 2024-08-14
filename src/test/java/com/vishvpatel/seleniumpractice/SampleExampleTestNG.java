@@ -15,7 +15,7 @@ public class SampleExampleTestNG extends CommonFile
 	void beforeClass()
 	{
 		setupreport();
-		edgeDriverIn();
+		chromeDriverIn();
 	}
 
 	@Test
