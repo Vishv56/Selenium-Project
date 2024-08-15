@@ -16,6 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
@@ -31,6 +32,7 @@ public class CommonFile
 	public static ExtentSparkReporter spark;
 	public static ExtentTest test;
 	public static Properties prop;
+	public static EdgeOptions options;
 
 
 
@@ -41,8 +43,10 @@ public class CommonFile
 	}
 
 	public static void edgeDriverIn()
-	{
-		driver=new EdgeDriver();
+	{ 
+		options = new EdgeOptions(); 
+		options.addArguments("--headless");
+		driver=new EdgeDriver(options);
 		driver.manage().window().maximize();
 	}
 	public static void firefocDriverIn()
