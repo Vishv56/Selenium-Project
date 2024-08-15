@@ -3,6 +3,8 @@ package com.vishvpatel.commonfiles;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -14,6 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -27,6 +30,8 @@ public class CommonFile
 	public static ExtentReports extent;
 	public static ExtentSparkReporter spark;
 	public static ExtentTest test;
+	public static Properties prop;
+
 
 
 	public static void chromeDriverIn()
@@ -39,6 +44,45 @@ public class CommonFile
 	{
 		driver=new EdgeDriver();
 		driver.manage().window().maximize();
+	}
+	public static void firefocDriverIn()
+	{
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+	}
+
+	public static void openBrowser(String browser) 
+	{
+		if (browser.equalsIgnoreCase("chrome"))
+		{
+			driver = new ChromeDriver();
+			driver.manage().window().maximize();
+		}
+		else if (browser.equalsIgnoreCase("edge"))
+		{
+			driver = new EdgeDriver();
+
+			driver.manage().window().maximize();
+		}
+		else if (browser.equalsIgnoreCase("firefox"))
+		{
+			driver = new FirefoxDriver();
+
+			driver.manage().window().maximize();
+		}
+	}
+
+	public static void loadConfigFile() throws IOException 
+	{
+		prop = new Properties();
+		File file = new File("./config/config.properties");
+		FileInputStream fis = new FileInputStream(file); 
+		prop.load(fis);
+	}
+
+	public static void impWait(int waitSeconds)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(waitSeconds));
 	}
 
 	public static String getCellData(String excelFilePath,String sheetName ,int rowNum, int colNum) throws IOException

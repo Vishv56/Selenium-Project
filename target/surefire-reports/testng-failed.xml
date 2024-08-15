@@ -6,9 +6,9 @@
       <class name="com.vishvpatel.seleniumpractice.SampleExampleTestNG">
         <methods>
           <include name="beforeClass"/>
-          <include name="beforeMethod"/>
           <include name="afterClass"/>
-          <include name="testCase1"/>
+          <include name="titleVerify"/>
+          <include name="afterMethod"/>
         </methods>
       </class> <!-- com.vishvpatel.seleniumpractice.SampleExampleTestNG -->
     </classes>
