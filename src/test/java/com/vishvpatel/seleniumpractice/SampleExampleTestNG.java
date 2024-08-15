@@ -20,7 +20,7 @@ public class SampleExampleTestNG extends CommonFile
 	void beforeClass() throws IOException
 	{
 		setupreport();
-		edgeDriverIn();
+		chromeDriverIn();
 		loadConfigFile();
 		aExcelFilePath=prop.getProperty("TestDataExcelFilePathForOrange");
 		sheetName = prop.getProperty("sheetNameForOrangeHrm");
