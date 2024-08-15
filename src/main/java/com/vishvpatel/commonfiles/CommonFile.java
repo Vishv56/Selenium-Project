@@ -45,7 +45,7 @@ public class CommonFile
 	public static void edgeDriverIn()
 	{ 
 		options = new EdgeOptions(); 
-		options.addArguments("--headless");
+		//options.addArguments("--headless");
 		driver=new EdgeDriver(options);
 		driver.manage().window().maximize();
 	}
